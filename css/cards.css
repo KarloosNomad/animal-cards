@@ -12,8 +12,8 @@
 }
 
 /* Body */
-body{
-    background-image: linear-gradient(to right,rgb(217, 217, 217), rgb(255, 245, 245), rgb(217, 217, 217));
+body {
+    background-image: linear-gradient(to right, rgb(217, 217, 217), rgb(255, 245, 245), rgb(217, 217, 217));
 }
 
 /* Header */
@@ -63,6 +63,11 @@ body{
     color: white;
 }
 
+.burger-menu{
+    float: right;
+    display: none;
+}
+
 
 /* Cards */
 .main-section {
@@ -82,7 +87,7 @@ body{
 }
 
 
-.card:hover .link a{
+.card:hover .link a {
     opacity: 1;
 }
 
@@ -137,24 +142,100 @@ body{
 }
 
 /* Responsividade */
-@media(max-width:830px){
-    .main-section{
+@media(max-width:830px) {
+
+    .navbar-list {
+        display: none;
+    }
+
+    .title {
+        left: 18px;
+        top: 12px;
+    }
+
+    .burger-menu{
+        display: flex;
+        height: 100%;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #checkbox-menu{
+        position: absolute;
+        opacity: 0;
+    }
+
+    #checkbox-menu:checked + label span:nth-child(1){
+        transform: rotate(-45deg);
+        top: 8px;
+    }
+
+    #checkbox-menu:checked + label span:nth-child(2){
+        opacity: 0;
+    }
+
+    #checkbox-menu:checked + label span:nth-child(3){
+        transform: rotate(45deg);
+        top: 8px;
+    }
+
+    .burger-menu label{
+        position: relative;
+        display: block;
+        height: 22px;
+        width: 30px;
+    }
+
+    .burger-menu label span{
+        position: absolute;
+        height: 5px;
+        width: 100%;
+        background-color: white;
+        border-radius: 30px;
+        transition: .25s ease-in-out;
+        right: -20px;
+    }
+
+    .burger-menu label span:nth-child(1){
+        top: 0;
+    }
+
+    .burger-menu label span:nth-child(2){
+        top: 8px;
+    }
+
+    .burger-menu label span:nth-child(3){
+        top: 16px;
+    }
+
+    .main-section {
         flex-direction: column;
         width: 600px;
     }
 
-    .card{
+    .card {
         width: 50%;
         margin: 20px auto;
     }
+
+    .link a {
+        opacity: 1;
+        transition: opacity 0s;
+    }
 }
 
-@media(max-width:650px){
-    .main-section{
+@media(max-width:650px) {
+    .main-section {
         width: 100vw;
     }
 
-    .card{
+    .card {
         width: 300px;
+    }
+}
+
+@media(max-width:450px) {
+    .title {
+        display: none;
     }
 }
